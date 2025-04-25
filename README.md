@@ -1,2 +1,2 @@
-# Entrenamiento
-## Actividad: Desafio de calificaciones y estadisticas
+# Actividad: Desafio de calificaciones y estadisticas 📄
+## Introduccion
