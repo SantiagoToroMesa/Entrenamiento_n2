@@ -22,6 +22,10 @@ def contar_mayores(list_not):
             if nota > valor:
                 print(f"La nota {nota} es mayor que {valor}")
                 cmayores += 1
-        print(f"la cantidad de notas mayores a {valor} es {cmayores}")
+
+        if cmayores == 0:
+            print(f"No hay notas mayores a {valor}")
+        elif cmayores<= 1:
+            print(f"la cantidad de notas mayores a {valor} es {cmayores}")
         break
 
