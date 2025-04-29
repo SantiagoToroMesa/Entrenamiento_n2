@@ -1,5 +1,6 @@
 from Estado_Aprobacion import estado
-from Calculo_Promedio import promediolista
+from Calculo_Promedio import promediolista, contar_mayores
+
 
 def menu():
     print("""\nBienvenido al sistema de gestion de calificaciones y estadisticas
@@ -14,7 +15,7 @@ def menu():
     
     opcion = input("Selecione una opcion: ")
     return opcion
-
+notas = []
 while True:
     opcion = menu()
 
@@ -22,10 +23,15 @@ while True:
         estado()
 
     elif opcion == "2":
-        promediolista()
+        notas = promediolista()
 
-    #elif opcion == "3":
+    elif opcion == "3":
+        if notas:
+            contar_mayores(notas)
+        else:
+            print("Primero debes calcular el promedio para contar las calificaciones mayores.")
 
+    #elif opcion == "4":
     elif opcion == "5":
         print("Saliendo del programa...")
         break

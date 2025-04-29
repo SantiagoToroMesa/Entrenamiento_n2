@@ -5,6 +5,18 @@ def promediolista():
     list_not = [float(nota) for nota in entrada.split(",")]
     promedio = sum(list_not) / len(list_not)
     print(f"El promedio de las notas es {promedio:.2f}")
+    return list_not
 
-#def Not_mayores():
-#    while True:
+#Contar las calificaciones mayores a un valor
+
+def contar_mayores(list_not):
+    cmayores = 0
+    while True:
+        valor = int(input("Ingrese el valor a comparar: "))
+        for nota in list_not:
+            if nota > valor:
+                print(f"La nota {nota} es mayor que {valor}")
+                cmayores += 1
+        print(f"la cantidad de notas mayores a {valor} es {cmayores}")
+        break
+
