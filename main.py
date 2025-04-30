@@ -15,7 +15,9 @@ def menu():
     
     opcion = input("Selecione una opcion: ")
     return opcion
+
 notas = []
+
 while True:
     opcion = menu()
 

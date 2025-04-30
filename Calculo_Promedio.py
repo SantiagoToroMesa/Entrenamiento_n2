@@ -5,10 +5,17 @@ def promediolista():
         try:
             entrada = input("Ingrese las Notas separadas por coma(,): ")
             list_not = [float(nota) for nota in entrada.split(",")]
-            promedio = sum(list_not) / len(list_not)
-            print(f"El promedio de las notas es {promedio:.2f}")
+            for nota in list_not:
+                if nota < 0 or nota > 100:
+                    print("ERROR: Las notas deben estar entre 0 y 100.")
+                    list_not.clear()
+                    break
+            else:
+                promedio = sum(list_not) / len(list_not)
+                print(f"El promedio de las notas es {promedio:.2f}")
+            # Verificar si la lista de notas no está vacía
         except ValueError:
-            print("ERROR: Debe ingresar solo numeros separados por comas.")
+            print("ERROR: Debe ingresar numeros separados por comas.")
             continue
         return list_not
 
@@ -25,7 +32,7 @@ def contar_mayores(list_not):
 
         if cmayores == 0:
             print(f"No hay notas mayores a {valor}")
-        elif cmayores<= 1:
-            print(f"la cantidad de notas mayores a {valor} es {cmayores}")
-        break
+            break
 
+        print(f"Hay {cmayores} notas mayores a {valor}")
+        break

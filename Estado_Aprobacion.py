@@ -1,5 +1,4 @@
 #Determinar el estado de aprobacion
-
 def estado():
     try:
         while True:
