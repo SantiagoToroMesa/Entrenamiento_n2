@@ -1,7 +1,4 @@
-from Estado_Aprobacion import estado
-from Calculo_Promedio import promediolista, contar_mayores
-
-
+from Funciones_notas import promediolista, contar_mayores, contariguales, estado
 def menu():
     print("""\nBienvenido al sistema de gestion de calificaciones y estadisticas
 =================================================================
@@ -16,24 +13,46 @@ def menu():
     opcion = input("Selecione una opcion: ")
     return opcion
 
-notas = []
+# Validar la entrada de notas
+
+def listanotas():
+    while True:
+        try:
+            print("="* 40)
+            entrada = input("Ingrese las Notas separadas por coma(,): ")
+            list_not = [float(nota) for nota in entrada.split(",")]
+            # Validar que todas las notas estén en el rango 0-100
+            if all(0 <= nota <= 100 for nota in list_not):
+                return list_not
+            else:
+                print("ERROR: Las notas deben estar entre 0 y 100.")
+        except ValueError:
+            print("ERROR: Debe ingresar números separados por comas.")
+
+lista = listanotas()
+prom = None
 
 while True:
     opcion = menu()
 
     if opcion == "1":
-        estado()
+        estado(prom)
 
     elif opcion == "2":
-        notas = promediolista()
+        prom = promediolista(lista)
 
     elif opcion == "3":
-        if notas:
-            contar_mayores(notas)
-        else:
-            print("Primero debes calcular el promedio para contar las calificaciones mayores.")
+        if lista:
+            contar_mayores(lista)
+        elif lista == 0:
+            print("Primero debe ingresar las notas")
 
-    #elif opcion == "4":
+    elif opcion == "4":
+        if lista:
+            contariguales(lista)
+        elif lista == 0:
+            print("Primero debe ingresar las notas")
+
     elif opcion == "5":
         print("Saliendo del programa...")
         break
