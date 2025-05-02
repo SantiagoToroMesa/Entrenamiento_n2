@@ -47,11 +47,9 @@ while True:
         # Se calcula el promedio
         prom = promediolista(lista)
 
-
     elif opcion == "2":
         # Se determina el estado de aprobacion
         estado(prom)
-
 
     elif opcion == "3":
         # Se cuentan las calificaciones mayores a un numero ingresado por el usuario
