@@ -1,4 +1,6 @@
 from Funciones_notas import promediolista, contar_mayores, contariguales, estado
+
+# menu de opciones para el usuario final
 def menu():
     print("""\nBienvenido al sistema de gestion de calificaciones y estadisticas
 =================================================================
@@ -7,9 +9,10 @@ def menu():
             2. Calcular el promedio
             3. Contar calificaciones mayores
             4. Verificar y contar calificaciones especificas
-            5. Salir
+            5. Volver a ingresar las notas
+            6. Salir
         """)
-    
+
     opcion = input("Selecione una opcion: ")
     return opcion
 
@@ -18,7 +21,7 @@ def menu():
 def listanotas():
     while True:
         try:
-            print("="* 40)
+            print("="* 65 + "\n")
             entrada = input("Ingrese las Notas separadas por coma(,): ")
             list_not = [float(nota) for nota in entrada.split(",")]
             # Validar que todas las notas estén en el rango 0-100
@@ -32,30 +35,39 @@ def listanotas():
 lista = listanotas()
 prom = None
 
+
 while True:
+
+# Se muestra el menu de opciones
     opcion = menu()
 
     if opcion == "1":
+        # Se muestra el estado de aprobacion
         estado(prom)
 
     elif opcion == "2":
+        # Se calcula el promedio
         prom = promediolista(lista)
 
     elif opcion == "3":
-        if lista:
-            contar_mayores(lista)
-        elif lista == 0:
-            print("Primero debe ingresar las notas")
+        # Se cuentan las calificaciones mayores a un numero ingresado por el usuario
+        contar_mayores(lista)
 
     elif opcion == "4":
-        if lista:
-            contariguales(lista)
-        elif lista == 0:
-            print("Primero debe ingresar las notas")
+        # Se cuentan las calificaciones iguales a un numero ingresado por el usuario
+        contariguales(lista)
 
     elif opcion == "5":
+        # Se vuelve a ingresar las notas
+        lista.clear()
+        prom = None
+        lista = listanotas()
+
+    # Se verifica si el usuario quiere salir del program
+    elif opcion == "6":
+        # Se sale del programa
         print("Saliendo del programa...")
         break
 
     else: 
-        print("Debes ingresar un numero del 1 al 5")
+        print("Debes ingresar un numero del 1 al 6")
