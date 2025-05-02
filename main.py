@@ -1,3 +1,4 @@
+#importo las funciones de Funciones_notas.py
 from Funciones_notas import promediolista, contar_mayores, contariguales, estado
 
 # menu de opciones para el usuario final
@@ -13,10 +14,11 @@ def menu():
             6. Salir
         """)
 
+# Se solicita al usuario que ingrese una opción
     opcion = input("Selecione una opcion: ")
     return opcion
 
-# Validar la entrada de notas
+#Validar la entrada de notas
 
 def listanotas():
     while True:
@@ -35,7 +37,7 @@ def listanotas():
 lista = listanotas()
 prom = None
 
-
+# Se inicia el ciclo principal del programa
 while True:
 
 # Se muestra el menu de opciones
@@ -60,12 +62,11 @@ while True:
         contariguales(lista)
 
     elif opcion == "5":
-        # Se vuelve a ingresar las notas
+        # Se vacia la lista de notas y se solicita volver a ingresarlas
         lista.clear()
         prom = None
         lista = listanotas()
 
-    # Se verifica si el usuario quiere salir del program
     elif opcion == "6":
         # Se sale del programa
         print("Saliendo del programa...")
