@@ -57,7 +57,7 @@ def contariguales(list_not):
 
 def estado(promedio):
     if promedio is None:
-        print("No se puede determinar el estado sin promedio. Calcule el promedio de las notas (opción 2) primero.")
+        print("No se puede determinar el estado sin promedio. Calcule el promedio de las notas (opción 1) primero.")
         return
     if 60 <= promedio <= 100:
         print("¡Haz aprobado!")

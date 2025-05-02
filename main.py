@@ -5,8 +5,8 @@ def menu():
     print("""\nBienvenido al sistema de gestion de calificaciones y estadisticas
 =================================================================
         \nMenu de opciones:\n 
-            1. Determinar el estado de aprobacion
-            2. Calcular el promedio
+            1. Calcular el promedio
+            2. Determinar el estado de aprobacion
             3. Contar calificaciones mayores
             4. Verificar y contar calificaciones especificas
             5. Volver a ingresar las notas
@@ -42,12 +42,14 @@ while True:
     opcion = menu()
 
     if opcion == "1":
-        # Se muestra el estado de aprobacion
-        estado(prom)
-
-    elif opcion == "2":
         # Se calcula el promedio
         prom = promediolista(lista)
+
+
+    elif opcion == "2":
+        # Se determina el estado de aprobacion
+        estado(prom)
+
 
     elif opcion == "3":
         # Se cuentan las calificaciones mayores a un numero ingresado por el usuario
